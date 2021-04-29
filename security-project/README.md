@@ -22,3 +22,8 @@ for windows:
 python -m pip install -r requirements.txt
 
 
+#To run the dev server, run:
+
+
+
+
