@@ -1,8 +1,18 @@
 import datetime
-
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
+class Post(models.Model):
+    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    timeStamp = models.DateTimeField(default=timezone.now)
+    msg = models.CharField(max_length=250, null=True)
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['timeStamp']
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
